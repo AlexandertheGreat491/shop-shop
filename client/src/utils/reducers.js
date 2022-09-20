@@ -1,5 +1,5 @@
 // imports the useReducer hook from react
-import { useReducer } from 'react';
+import { useReducer } from "react";
 // actual functionality that carries out the emitted action to update state
 
 import {
@@ -36,5 +36,6 @@ export const reducer = (state, action) => {
 
 // helps initialize the global state object & provides functionality for updating that state automatically running through reducer()
 export function useProductReducer(initialState) {
-    return useReducer(reducer, initialState);
+  // useReducer manages greater level of state than would be possible with the useState hook
+  return useReducer(reducer, initialState);
 }
