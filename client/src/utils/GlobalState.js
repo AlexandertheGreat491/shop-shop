@@ -9,6 +9,8 @@ const StoreContext = createContext();
 const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
+    // state is the most up-to-date version of global state object
+    // dispatch is the method executed to update state
   const [state, dispatch] = useProductReducer({
     products: [],
     categories: [],
