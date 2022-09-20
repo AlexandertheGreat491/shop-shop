@@ -33,3 +33,8 @@ export const reducer = (state, action) => {
       return state;
   }
 };
+
+// helps initialize the global state object & provides functionality for updating that state automatically running through reducer()
+export function useProductReducer(initialState) {
+    return useReducer(reducer, initialState);
+}
