@@ -1,28 +1,21 @@
-// createContext is used to create new Context object
-// useContext is a React hook for using the state created by the createContext function
 import React, { createContext, useContext } from "react";
-import { useProductReducer } from "./reducers";
+import { useProductReducer } from './reducers'
 
 const StoreContext = createContext();
-// Provider is a special type of React component for wrapping the application
-// so that it can  make the state data that's passed into it as a prop available to all other components
 const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
-    // state is the most up-to-date version of global state object
-    // dispatch is the method executed to update state
   const [state, dispatch] = useProductReducer({
     products: [],
     categories: [],
-    currentCategory: "",
+    currentCategory: '',
   });
-  // use this to confirm it works!
-  console.log(state);
+
   return <Provider value={[state, dispatch]} {...props} />;
 };
 
 const useStoreContext = () => {
-    return useContext(StoreContext);
-  };
+  return useContext(StoreContext);
+};
 
-  export { StoreProvider, useStoreContext };
+export { StoreProvider, useStoreContext };
