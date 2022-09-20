@@ -4,4 +4,6 @@ import React, { createContext, useContext } from "react";
 import { useProductReducer } from "./reducers";
 
 const StoreContext = createContext();
+// Provider is a special type of React component for wrapping the application
+// so that it can  make the state data that's passed into it as a prop available to all other components
 const { Provider } = StoreContext;
