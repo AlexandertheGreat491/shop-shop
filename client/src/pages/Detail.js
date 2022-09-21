@@ -76,6 +76,8 @@ function Detail() {
       type: REMOVE_FROM_CART,
       _id: currentProduct._id,
     });
+    // when removed from the cart, delete the item from IndexedDB using the `currentProduct._id` to locate what to remove
+    idbPromise("cart", "delete", { ...currentProduct });
   };
 
   return (
