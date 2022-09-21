@@ -26,5 +26,25 @@ export function idbPromise(storeName, method, object) {
     request.onerror = function (e) {
       console.log("There was an error");
     };
+
+    // on database open success
+    request.onsuccess = function (e) {
+      // save a reference of the database to the `db` variable
+      db = request.result;
+      // open a transaction do whatever is passed into `storeName` (must match one of the object store names)
+      tx = db.transaction(storeName, "readwrite");
+      // save a reference to the object store
+      store = tx.objectStore(storeName);
+
+      // if there's any errors, let us know
+      db.onerror = function (e) {
+        console.log("error", e);
+      };
+
+      // when the transaction is complete, close the connection
+      tx.oncomplete = function () {
+        db.close();
+      };
+    };
   });
 }
