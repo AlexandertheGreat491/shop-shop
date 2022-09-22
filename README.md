@@ -49,6 +49,9 @@ Step 10: Run the command `heroku run npm run seed` and then access your database
 
 Please view the screenshot to get an idea of how the app can be used.
 
+![app_screenshot](https://user-images.githubusercontent.com/64184203/191674786-e943f90c-c860-4b47-80b3-18616f077c87.jpg)
+
+
 ## Credits
 
 Collaborators:
